@@ -1,0 +1,17 @@
+services:
+  usuarios-mysql:
+    image: mysql:latest
+    container_name: usuarios-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: usuarios
+    ports:
+      - 3306:3306
+
+  usuariosAPI:
+    image: usuarios-api-image
+    container_name: usuarios-api-container
+    ports:
+      - 8080:8080
+    depends_on:
+      - usuarios-mysql
