@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 
 
@@ -19,12 +20,22 @@ public class CarrinhoEntity {
 
     @Field
     private HashMap<String,Integer> listaProdutos;
+    private BigDecimal precoFinal;
 
 
     public CarrinhoEntity(String usuarioId) {
         this.usuarioId = usuarioId;
         this.status = true;
         this.listaProdutos = new HashMap<>();
+        this.precoFinal = BigDecimal.ZERO;
+    }
+
+    public BigDecimal getPrecoFinal() {
+        return precoFinal;
+    }
+
+    public void setPrecoFinal(BigDecimal precoFinal) {
+        this.precoFinal = precoFinal;
     }
 
     public String getId() {

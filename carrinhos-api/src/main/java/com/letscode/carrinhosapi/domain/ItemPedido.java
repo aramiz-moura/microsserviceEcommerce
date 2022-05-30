@@ -5,7 +5,7 @@ package com.letscode.carrinhosapi.domain;
 
 public class ItemPedido {
 
-    private String usuarioId;
+    private Integer usuarioId;
     private String produtoId;
     private Integer quantidade;
 
@@ -13,11 +13,12 @@ public class ItemPedido {
         return produtoId;
     }
 
-    public String getUsuarioId() {
+
+    public Integer getUsuarioId() {
         return usuarioId;
     }
 
-    public void setUsuarioId(String usuarioId) {
+    public void setUsuarioId(Integer usuarioId) {
         this.usuarioId = usuarioId;
     }
 

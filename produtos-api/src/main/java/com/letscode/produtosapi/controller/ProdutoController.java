@@ -37,4 +37,10 @@ public class ProdutoController {
         return new ResponseEntity<>(new ProdutoResponse(produtoService.toEntity(request)),HttpStatus.CREATED);
     }
 
+    @GetMapping("/preco/{idProduto}")
+    public ResponseEntity<ProdutoResponse> getProdutoPorId(@PathVariable String idProduto){
+        ProdutoResponse response = new ProdutoResponse(produtoService.getPorId(idProduto));
+        return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
+    }
+
 }

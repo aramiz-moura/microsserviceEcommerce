@@ -15,3 +15,33 @@ services:
       - 8080:8080
     depends_on:
       - usuarios-mysql
+
+  produtos-mongo:
+    image: mongo:latest
+    container_name: produtos-mongo
+
+  produtosAPI:
+    image: produtos-api-image
+    container_name: produtos-api-container
+    ports:
+      - 8081:8081
+    depends_on:
+      - produtos-mongo
+
+  carrinhos-mongo:
+    image: mongo:latest
+    container_name: carrinhos-mongo
+    command: mongod -port 27018
+    ports:
+      - 27018:27018
+
+  carrinhosAPI:
+    image: carrinhos-api-image
+    container_name: carrinhos-api-container
+    ports:
+      - 8082:8082
+    depends_on:
+      - carrinhos-mongo
+
+
+
