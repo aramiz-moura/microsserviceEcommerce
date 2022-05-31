@@ -44,4 +44,29 @@ services:
       - carrinhos-mongo
 
 
+ vendas-mongo:
+   image: mongo:latest
+   container_name: vendas-mongo
+   hostname: vendas-mono
+   ports:
+     - 27019:27019
+
+
+ vendasAPI:
+   image: vendas-api-image
+   container_name: vendas-api-container
+   ports:
+     - 80:80
+   depends_on:
+     - usuariosAPI
+     - produtosAPI
+     - carrinhosAPI
+     - vendas-mongo
+
+
+
+
+
+
+
 

@@ -19,4 +19,56 @@ public class VendaEntity {
 
     @Field
     private Map<String,BigDecimal> produtos;
+
+
+
+    public VendaEntity(VendaComCarrinhoRequest request) {
+        this.usuarioId = request.getUsuarioId();
+        this.carrinhoId = request.getId();
+        this.precoTotalFinal = request.getPrecoTotal();
+        this.produtos = request.getProdutos();
+    }
+
+    public VendaEntity() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Integer getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Integer usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
+    public String getCarrinhoId() {
+        return carrinhoId;
+    }
+
+    public void setCarrinhoId(String carrinhoId) {
+        this.carrinhoId = carrinhoId;
+    }
+
+    public BigDecimal getPrecoTotalFinal() {
+        return precoTotalFinal;
+    }
+
+    public void setPrecoTotalFinal(BigDecimal precoTotalFinal) {
+        this.precoTotalFinal = precoTotalFinal;
+    }
+
+    public Map<String, BigDecimal> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(Map<String, BigDecimal> produtos) {
+        this.produtos = produtos;
+    }
 }
